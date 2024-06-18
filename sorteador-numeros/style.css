@@ -135,6 +135,18 @@ h1 {
     height: auto;
     margin-top: 2rem;
 }
+.container__alerta {
+    color: red;
+    font-family: 'Inter';
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+.border__red {
+    border: 2px solid red;
+    
+}
 
 button:disabled {
     background-color: gray;
