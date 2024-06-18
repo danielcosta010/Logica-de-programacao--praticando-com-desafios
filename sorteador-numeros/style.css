@@ -145,7 +145,7 @@ h1 {
 }
 .border__red {
     border: 2px solid red;
-    
+    animation: tremer 0.4s;  
 }
 
 button:disabled {
@@ -156,8 +156,19 @@ button:disabled {
     .container__imagem-pessoa {
         display: none;
     }
-
+    
     h1 {
         font-size: 50px;
     }
 }
+
+@keyframes tremer {
+    0% {transform: translateX(0);}
+    25% {transform: translateX(7px);}
+    50% {transform: translateX(0);}
+    75% {transform: translateX(-7px);}
+    100% {transform: translateX(0);}
+} 
+
+
+

@@ -13,8 +13,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Verifica se a quantidade de números é maior que o intervalo
     if (quantidade > (final - inicial + 1)) {
-      resultado.innerHTML = `<label class="container__alerta">Quantidade de numeros não deve ser maior que o intervalo entre numeros inicial e final</label>`;
+      resultado.innerHTML = `<label class="container__alerta">Quantidade de numeros deve ser menor ou igual ao intervalo entre numeros inicial e final</label>`;
       quantidadeNumeros.classList.add('border__red')
+
+      setTimeout(() => {
+        quantidadeNumeros.classList.remove('border__red')
+      }, 400)
       return;
     }
 
