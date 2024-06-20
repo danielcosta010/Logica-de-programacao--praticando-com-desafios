@@ -8,7 +8,6 @@ let total = 0
 
 function adicionar() {
   let descricaoProduto = produto.value.split('-');
-  console.log(descricaoProduto);
   let precoComR$ = descricaoProduto[1];
   let nomeProduto = descricaoProduto[0];
   let preco = precoComR$.replace('R$', '');
