@@ -36,10 +36,11 @@
         <section class="parte-inferior">
           <label class="campo-grupo">
             <span class="texto-medio-azul">Qtde.</span>
-            <input class="quantidade-input" id="quantidade" type="number" placeholder="100">
+            <input class="quantidade-input" id="quantidade" type="number" placeholder="100" min="1" oninput="validity.valid||(value='')">
           </label>
-
+          
           <section class="botoes-wrapper">
+            <span class="quantidade__alerta"></span>
             <button onclick="adicionar()" type="button" class="botao-form botao-adicionar">Adicionar</button>
             <button onclick="limpar()" type="button" class="botao-form botao-limpar">Limpar</button>
           </section>
@@ -56,15 +57,18 @@
       </div>
 
       <section class="carrinho__produtos" id="lista-produtos">
-        <section class="carrinho__produtos__produto">
-          <span class="texto-azul">1x</span> Celular <span class="texto-azul">R$1400</span>
-        </section>
       </section>
+      <div id="carrinho__vazio">
+        <p 
+          class="carrinho__vazio-texto">Seu carrinho está vazio 
+        </p>
+      </div>
+      
 
       <div class="divisoria"></div>
 
       <p class="carrinho__total">
-        Total: <span class="texto-azul" id="valor-total">R$1400</span>
+        Total: <span class="texto-azul" id="valor-total">R$0,00</span>
       </p>
     </section>
   </main>
