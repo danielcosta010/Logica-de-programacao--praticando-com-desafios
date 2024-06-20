@@ -8,6 +8,7 @@ let total = 0
 
 function adicionar() {
   let descricaoProduto = produto.value.split('-');
+  console.log(descricaoProduto);
   let precoComR$ = descricaoProduto[1];
   let nomeProduto = descricaoProduto[0];
   let preco = precoComR$.replace('R$', '');
@@ -29,11 +30,11 @@ function adicionar() {
     });
     return;
   }
+  
     carrinho.innerHTML +=
-      ` <section class="carrinho__produtos" id="lista-produtos">
-          <section class="carrinho__produtos__produto">
-            <span class="texto-azul">${quantidade.value}x</span> ${nomeProduto}<span class="texto-azul">${precoComR$}</span>
-          </section>
+      ` 
+        <section class="carrinho__produtos__produto">
+          <span class="texto-azul">${quantidade.value}x</span> ${nomeProduto}<span class="texto-azul">${precoComR$}</span>
         </section>
       `;
 
@@ -50,6 +51,5 @@ function limpar() {
   valorTotal.innerHTML = 'R$0,00'
   total = 0
   quantidade.value = ''
-  carrinhoVazio.innerHTML = `<p 
-  class="carrinho__vazio-texto">Seu carrinho está vazio </p>`
+  carrinhoVazio.innerHTML = `<p class="carrinho__vazio-texto">Seu carrinho está vazio </p>`
 }

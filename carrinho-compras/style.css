@@ -148,7 +148,7 @@ input[type="number"] {
 }
 
 .border__red {
-  border: 2px solid red;
+  border: 2px solid rgb(247, 7, 7);
   animation: tremer .4s;
 }
 @keyframes tremer {
