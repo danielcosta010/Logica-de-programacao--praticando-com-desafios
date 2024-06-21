@@ -33,7 +33,7 @@ function adicionar() {
     carrinho.innerHTML +=
       ` 
         <section class="carrinho__produtos__produto">
-          <span class="texto-azul">${quantidade.value}x</span> ${nomeProduto}<span class="texto-azul">${precoComR$}</span>
+          <span class="texto-azul">${quantidade.value}x</span> ${nomeProduto}<span class="texto-azul">R$${resultadoFinal}</span>
         </section>
       `;
 
@@ -43,6 +43,7 @@ function adicionar() {
         `;
 
     carrinhoVazio.innerHTML = ''
+    quantidade.value = ''
 }
 
 function limpar() {
