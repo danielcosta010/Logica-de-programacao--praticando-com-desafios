@@ -118,11 +118,11 @@ function comprar() {
   } else if(estoqueAtual === 0) {
     abrirModal()
     mensagemModal.style.color = 'red'
-    mensagemModal.textContent = `Não há mais ingressos disponíveis na ${tipo}.`
+    mensagemModal.textContent = `Ingressos esgotados para ${tipo}.`
   } else {
     abrirModal()
     mensagemModal.style.color = 'orange'
-    mensagemModal.innerHTML = `Restam somente ${estoqueAtual} ingressos na ${tipo}`;
+    mensagemModal.innerHTML = `Restam só ${estoqueAtual} ingressos na ${tipo}`;
   }
 
   quantidade.value = '';
