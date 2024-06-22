@@ -78,7 +78,14 @@ let qtdCadeiraInferior = 400;
 let qtdCadeiraSuperior = 200;
 let qtdPista = 100;
 
+let form = document.getElementById('form')
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+})
+
 function comprar() {
+  
   let qtd = quantidade.value;
 
   if (isNaN(qtd) || qtd <= 0) {
