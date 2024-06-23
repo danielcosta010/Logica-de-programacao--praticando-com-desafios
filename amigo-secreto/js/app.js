@@ -1,14 +1,23 @@
 const nomeAmigo = document.getElementById('nome-amigo');
 const amigos = document.getElementById('lista-amigos');
 const sorteio = document.getElementById('lista-sorteio');
-
+const alertaNome = document.getElementById('alerta-nome');
+const alertaAmigos = document.getElementById('alerta-amigos');
+const containerLista = document.querySelector('.friends__container')
 
 function adicionar() {
   if (nomeAmigo.value.trim() !== '') {
     amigos.textContent += amigos.textContent ? `, ${nomeAmigo.value.trim()}` : nomeAmigo.value.trim();
     nomeAmigo.value = '';
   } else {
-    alert('Insira o nome do amigo!');
+    nomeAmigo.classList.add('animation')
+    alertaNome.textContent = 'Digite o nome do amigo'
+    setTimeout(() => {
+      nomeAmigo.classList.remove('animation')
+    }, 500)
+    nomeAmigo.addEventListener('input', () => {
+      alertaNome.textContent = ''
+    })
   }
 }
 
@@ -20,17 +29,21 @@ function sortear() {
   let sorteado;
   
   if(nomes.length < 3) {
-    alert('Digite ao menos 3 nomes')
+    alertaAmigos.textContent = 'Digite no mínimo três amigos para o sorteio'
+    containerLista.classList.add('animation')
+    setTimeout(() => {
+      containerLista.classList.remove('animation')
+    }, 500)
     return
   }
   
+  
   do {
     sorteado = embaralhar(nomes.slice());
-    console.log(sorteado[0]);
-
   } while (!valido(nomes, sorteado));
 
   sorteio.innerHTML = nomes.map((nome, i) => `${nome} ==> ${sorteado[i]}`).join('<br>');
+  alertaAmigos.textContent = ''
 }
 
 function embaralhar(array) {
@@ -41,14 +54,17 @@ function embaralhar(array) {
   return array;
 }
 
-
+//Verifica se o nome é diferente para não sortear a si mesmo
 function valido(nomes, sorteio) {
   return nomes.every((nome, i) => nome !== sorteio[i]);
 }
 
+//Reinicia todo formulario
 function reiniciar() {
   nomeAmigo.value = '';
   amigos.textContent = '';
   sorteio.textContent = '';
+  alertaAmigos.textContent = '';
+  alertaNome.textContent = ''
 }
 
