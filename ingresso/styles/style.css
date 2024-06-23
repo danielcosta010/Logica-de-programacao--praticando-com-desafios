@@ -106,7 +106,7 @@ form .input-group input::placeholder {
     70% {transform: translateX(-2px);}
     90% {transform: translateX(0);}
     100% {transform: translateX(2px);}
-  }
+}
 
 form button {
     color: white;
