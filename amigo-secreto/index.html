@@ -7,12 +7,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch&family=Inter&display=swap" rel="stylesheet">
-  <link href="
-https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css
-" rel="stylesheet" />
-  <link href="
-https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css
-" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css" rel="stylesheet" />
   <title>Amigo Secreto</title>
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -29,7 +25,7 @@ https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css
             <label class="form__label">
               Digite o nome de um amigo
             </label>
-            <input id="nome-amigo" class="form__input" type="text" placeholder="Nome do amigo" oninput="validity.valid||(value='')" pattern="[A-Za-zà-ùÀ-Ùá-úÁ-Úã-õÃ-Õ]+">
+            <input id="nome-amigo" class="form__input" type="text" placeholder="Nome do amigo" oninput="validity.valid||(value='')" pattern="[A-Za-zà-ùÀ-Ùá-úÁ-Úã-õÃ-Õ ]+">
             <div class="form__buttons">
               <p id="alerta-nome" class="alerta-nome"></p>
               <button onclick="adicionar()" type="button" class="button primary">Adicionar</button>
