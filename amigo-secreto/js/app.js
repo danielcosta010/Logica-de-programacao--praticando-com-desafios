@@ -3,22 +3,24 @@ const amigos = document.getElementById('lista-amigos');
 const sorteio = document.getElementById('lista-sorteio');
 const alertaNome = document.getElementById('alerta-nome');
 const alertaAmigos = document.getElementById('alerta-amigos');
-const containerLista = document.querySelector('.friends__container')
+const containerLista = document.querySelector('.friends__container');
 
 function adicionar() {
-  if (nomeAmigo.value.trim() !== '') {
+  if (nomeAmigo.value.trim() !== '' && !amigos.textContent.includes(nomeAmigo.value)) {
     amigos.textContent += amigos.textContent ? `, ${nomeAmigo.value.trim()}` : nomeAmigo.value.trim();
     nomeAmigo.value = '';
+  } else if(amigos.textContent.includes(nomeAmigo.value) && nomeAmigo.value.trim() !== '') {
+    alertaNome.textContent = 'Nome já esta nalista';
   } else {
-    nomeAmigo.classList.add('animation')
-    alertaNome.textContent = 'Digite o nome do amigo'
+    nomeAmigo.classList.add('animation');
+    alertaNome.textContent = 'Digite o nome do amigo';
     setTimeout(() => {
       nomeAmigo.classList.remove('animation')
-    }, 500)
+    }, 500);
     nomeAmigo.addEventListener('input', () => {
       alertaNome.textContent = ''
-    })
-  }
+    });
+  };
 }
 
 function sortear() {
@@ -27,17 +29,17 @@ function sortear() {
   //Métod trim() remove espaços em branco de ambos os lados da string, por ter usado o map() remove de cada string so array
   const nomes = amigos.textContent.split(',').map(nome => nome.trim());
   let sorteado;
-  
+
   if(nomes.length < 3) {
-    alertaAmigos.textContent = 'Digite no mínimo três amigos para o sorteio'
-    containerLista.classList.add('animation')
+    alertaAmigos.textContent = 'Digite no mínimo três amigos para o sorteio';
+    containerLista.classList.add('animation');
     setTimeout(() => {
       containerLista.classList.remove('animation')
-    }, 500)
-    return
+    }, 500);
+    return;
   }
-  
-  
+
+
   do {
     sorteado = embaralhar(nomes.slice());
   } while (!valido(nomes, sorteado));
@@ -68,3 +70,66 @@ function reiniciar() {
   alertaNome.textContent = ''
 }
 
+
+     // Solução dos instrutores
+
+/* 
+
+let arrayAmigos = [];
+
+function adicionar() {
+  let nomeAmigo = document.getElementById('nome-amigo');
+  let listaAmigos = document.getElementById('lista-amigos');
+  
+  if(nomeAmigo.value == '') {
+    alert('Digite um nome');
+    return
+  }
+  
+  if (arrayAmigos.includes(nomeAmigo.value)) {
+    alert('Nome já adicionado!');
+    return
+  }
+  arrayAmigos.push(nomeAmigo.value);
+  
+  if (listaAmigos.textContent == '') {
+    listaAmigos.textContent = nomeAmigo.value;
+  } else {
+    listaAmigos.textContent += ', ' + nomeAmigo.value;
+  }
+  nomeAmigo.value = ''
+}
+
+function sortear() {
+  if (arrayAmigos.length < 4) {
+    alert('Adione pelo menos 4 amigos');
+    return
+  }
+
+  embaralhar(arrayAmigos)
+  let sorteados = document.getElementById('lista-sorteio');
+  
+  for (let i = 0; i < arrayAmigos.length; i++) {
+    if (i == arrayAmigos.length - 1) {
+      sorteados.innerHTML += `${arrayAmigos[i]} ==> ${arrayAmigos[0]} <br>`;
+    } else {
+      sorteados.innerHTML += `${arrayAmigos[i]} ==> ${arrayAmigos[i + 1]} <br>`;
+    };
+  };
+
+};
+
+function embaralhar(lista) {
+  for (let i = lista.length; i; i--) {
+    const indiceAleatorio = Math.floor(Math.random() * i);
+    [lista[i - 1], lista[indiceAleatorio]] = [lista[indiceAleatorio], lista[i - 1]]
+  };
+};
+
+function reiniciar() {
+  arrayAmigos = [];
+  document.getElementById('lista-amigos').innerHTML = '';
+  document.getElementById('lista-sorteio').innerHTML = '';
+};
+
+*/
